@@ -16,7 +16,10 @@ module.exports = {
         "primary-text": "#607B96",
         "highlight-text": "#FFFFFF",
         "line-color": "#1E2D3D",
-        "accent-color": "#FEA55F"
+        "accent-orange": "#FEA55F",
+        "accent-blue": "#43D9AD",
+        "accent-red": "#E99287",
+        "accent-purple": "#C98BDF"
       }
     },
   },

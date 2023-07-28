@@ -9,13 +9,11 @@ interface NavLinkProps {
 
 const NavLink = ({ path, text }: NavLinkProps) => {
 
-    const pathName = usePathname();
-    console.log(pathName === path);
-    
+    const pathName = usePathname();    
 
     return (
         <li>
-            <Link href={path} className={`p-4 border-r border-r-line-color hover:text-highlight-text hover:border-b hover:border-b-accent-color hover:border-b-2 ${pathName === path ? "text-highlight-text border-b border-b-accent-color border-b-2" : ""}`}>{text}</Link>
+            <Link href={path} className={`p-4 border-r border-r-line-color hover:text-highlight-text hover:border-b hover:border-b-accent-orange hover:border-b-2 ${pathName === path ? "text-highlight-text border-b border-b-accent-orange border-b-2" : ""}`}>{text}</Link>
         </li>
     )
 }

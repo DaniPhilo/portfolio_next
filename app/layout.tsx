@@ -22,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${font.className} w-screen h-screen bg-background-fill p-4`}>
-        <main className='w-full h-full flex flex-col bg-primary text-primary-text border border-line-color rounded'>
+        <div className='w-full h-full flex flex-col bg-primary text-primary-text border border-line-color rounded'>
 
           <header className='w-full flex justify-start items-center border-b border-line-color rounded'>
-            <div className='max-w-[300px] p-4 border-r border-r-line-color'>
+            <div className='max-w-[300px] grow p-4 border-r border-r-line-color'>
               <p>daniel-carrasco</p>
             </div>
             <nav>
@@ -37,9 +37,9 @@ export default function RootLayout({
             </nav>
           </header>
 
-          <section className='grow'>
+          <main className='grow'>
             {children}
-          </section>
+          </main>
 
           <footer className='w-full flex justify-start items-center border-t border-line-color rounded'>
             <div className='max-w-[300px] p-4 border-r border-r-line-color'>
@@ -47,7 +47,7 @@ export default function RootLayout({
             </div>
           </footer>
 
-        </main>
+        </div>
       </body>
     </html>
   )
