@@ -47,9 +47,9 @@ const SingleExperience = ({ title, company, dates, description }: SingleExperien
                         <HtmlTag tag="</span>" />
                     </div>
                 </div>
-                <div className="mt-8">
+                <div className="mt-6">
                     <HtmlTag tag="<p>" />
-                    <p className="text-highlight-text ml-4">{description}</p>
+                    <p className=" ml-8">{description}</p>
                     <HtmlTag tag="</p>" />
                 </div>
             </div>
@@ -78,7 +78,7 @@ const ExperienceText = () => {
                 title="Full Stack Developer"
                 company="ASEAF"
                 dates="May 2022 - Jun 2022"
-                description="Proyecto exprés de 1 mes de duración para ayudar a la ONGASEAF a desarrollar una aplicación Frontend / Backend paramejorar su proceso de recogida y gestión de datos. El proyectoincluyó la construcción e integración de una API en elBackoffice de sus empleados y colaboradores."
+                description="Proyecto exprés de 1 mes de duración para ayudar a la ONG ASEAF a desarrollar una aplicación Frontend / Backend para mejorar su proceso de recogida y gestión de datos. El proyecto incluyó la construcción e integración de una API en e backoffice de sus empleados y colaboradores."
             />
         </div>
 

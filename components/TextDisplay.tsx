@@ -8,8 +8,6 @@ function countLines(ref: React.RefObject<HTMLDivElement>) {
         const elementHeight: number = div.offsetHeight;
         const lineHeight: number = parseInt(window.getComputedStyle(div).lineHeight);
         const lines: number = Math.round(elementHeight / lineHeight);
-        console.log(lines);
-
         return lines
     }
 
