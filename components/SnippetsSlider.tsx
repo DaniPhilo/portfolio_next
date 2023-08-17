@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 const ITEM_WIDTH = 600;
 const ITEM_HEIGHT = 150;
-const PADDING_Y = 20;
+const PADDING_Y = 5;
 
 const SnippetsSlider = ({ snippets }: { snippets: number[] }) => {
 
@@ -20,31 +20,33 @@ const SnippetsSlider = ({ snippets }: { snippets: number[] }) => {
         // Update snippets scale and opacity relatively to their ditances from the selected snippet
         children.forEach((el: HTMLDivElement, index) => {
             if (index === targetIndex - 2) {
-                el.style.transform = "scale(0.9)";
+                el.style.transform = "scale(0.7)";
+                el.style.zIndex = "2";
                 el.style.opacity = "0.25";
             }
             else if (index === targetIndex - 1) {
-                el.style.transform = "scale(1)";
-                el.style.zIndex = "0";
+                el.style.transform = "scale(0.8)";
+                el.style.zIndex = "2";
                 el.style.opacity = "0.5";
             }
             else if (index === targetIndex + 1) {
-                el.style.transform = "scale(1)";
-                el.style.zIndex = "0";
+                el.style.transform = "scale(0.8)";
+                el.style.zIndex = "2";
                 el.style.opacity = "0.5";
             }
             else if (index === targetIndex + 2) {
-                el.style.transform = "scale(0.9)";
+                el.style.transform = "scale(0.7)";
+                el.style.zIndex = "2";
                 el.style.opacity = "0.25";
             }
             else if (index === targetIndex) {
-                el.style.transform = "scale(1.15)";
-                el.style.zIndex = "1";
+                el.style.transform = "scale(1)";
+                el.style.zIndex = "9";
                 el.style.opacity = "1";
             }
             else {
-                el.style.transform = "scale(0.9)";
-                el.style.zIndex = "0";
+                el.style.transform = "scale(0.7)";
+                el.style.zIndex = "2";
                 el.style.opacity = "0";
             }
         })
@@ -64,14 +66,14 @@ const SnippetsSlider = ({ snippets }: { snippets: number[] }) => {
 
     useEffect(() => {
         // If mouse is not hovering, autoscroll
-        const intervalId = animationOn ? setInterval(autoScroll, 2000) : undefined;
+        const intervalId = animationOn ? setInterval(autoScroll, 5000) : undefined;
         return () => clearInterval(intervalId);
     }, [animationOn])
 
     return (
         <div 
         ref={el} 
-        className={`relative h-full mx-auto transition-all duration-700`} style={{ width: ITEM_WIDTH }}
+        className={`relative w-full h-full mx-auto transition-all duration-700 translate-y-[50%]`}
         onMouseEnter={() => setAnimationOn(false)}
         onMouseLeave={() => setAnimationOn(true)}
         >
@@ -82,14 +84,15 @@ const SnippetsSlider = ({ snippets }: { snippets: number[] }) => {
                             key={index}
                             className={`absolute left-0 w-full p-4 bg-line-color transition-all duration-700 ease-out origin-center rounded-xl`}
                             style={{
-                                // width: ITEM_WIDTH,
+                                // width: "500px",
                                 height: ITEM_HEIGHT,
                                 top: (ITEM_HEIGHT + PADDING_Y) * index,
                                 opacity: Math.abs(-selectedIndex.current - (-index)) === 1 ?
                                     "0.5"
                                     : Math.abs(-selectedIndex.current - (-index)) === 2 ?
                                         "0.25"
-                                        : 1
+                                        : 1,
+                                transform: selectedIndex.current === index ? "scale(1)" : "scale(0.8)"
                             }}
                             onClick={(e) => doSelect(index)}
                         >
