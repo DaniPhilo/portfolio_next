@@ -54,7 +54,7 @@ const AboutPage = () => {
       </div>
       <div className="grid grid-cols-text-display-layout">
         <div className="py-4 px-6">
-          <TextDisplay />
+          <TextDisplay section={section} />
         </div>
         <Scrollbar />
       </div>

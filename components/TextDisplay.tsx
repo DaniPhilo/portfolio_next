@@ -1,35 +1,36 @@
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { bioText } from "../helpers/texts"
 import { useEffect, useRef, useState } from 'react';
+import BioText from './BioText';
+import ExperienceText from './ExperienceText';
 
-function useCountLines(ref: React.RefObject<HTMLDivElement>) {
-    const divs = ref.current?.children as HTMLCollection | null;
-    if (divs) {
-        const totalLines: number = [...divs].reduce((acc, curr) => {
-            const elementHeight: number = curr.offsetHeight;
-            const lineHeight: number = parseInt(window.getComputedStyle(curr).lineHeight);
-            const lines: number = Math.round(elementHeight / lineHeight);
-            console.log(lines);
+function countLines(ref: React.RefObject<HTMLDivElement>) {
+    const div = ref.current;
+    if (div) {
+        const elementHeight: number = div.offsetHeight;
+        const lineHeight: number = parseInt(window.getComputedStyle(div).lineHeight);
+        const lines: number = Math.round(elementHeight / lineHeight);
+        console.log(lines);
 
-            return acc + lines
-        }, 0);
-        return totalLines
+        return lines
     }
 
-    return null;
+    return 0;
 }
 
-const TextDisplay = () => {
+interface TextDisplayProps {
+    section: string
+}
+
+const TextDisplay = ({ section }: TextDisplayProps) => {
 
     const textRef = useRef<HTMLDivElement>(null);
     const [numArray, setNumArray] = useState<number[]>([]);
     const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
     useEffect(() => {
-        const lines = useCountLines(textRef);
-        const array = Array.from(Array(lines + 1 || 0).keys());
+        const lines = countLines(textRef);
+        const array = Array.from(Array(lines + 1).keys());
         setNumArray(array);
-    }, [windowWidth]);
+    }, [windowWidth, section]);
 
     useEffect(() => {
         function handleResize() {
@@ -42,43 +43,36 @@ const TextDisplay = () => {
     }, []);
 
     return (
-        <div className='grid grid-cols-[50px_1fr] gap-x-4'>
-            <div className='flex flex-col'>
+        <div className='flex justify-start items-start gap-6'>
+            <div className='min-w-[50px] flex flex-col'>
                 {
                     numArray.map(num => (
                         <div key={num} className='flex justify-between'>
                             <span>{num + 1}</span>
-                            <span>
-                                {num === 0 ?
-                                    "/**"
-                                    : num === numArray.length - 1 ?
-                                        "*/"
-                                        : "*"}
-                            </span>
+                            {
+                                section === "bio" &&
+                                <span>
+                                    {num === 0 ?
+                                        "/**"
+                                        : num === numArray.length - 1 ?
+                                            "*/"
+                                            : "*"}
+                                </span>
+                            }
                         </div>
                     )
                     )
                 }
             </div>
             <div ref={textRef}>
-                {bioText.map((text, i) => {
-                    return (
-                        <SyntaxHighlighter
-                            key={i}
-                            language='htmlbars'
-                            wrapLongLines
-                            customStyle={{
-                                backgroundColor: "#011627",
-                                color: "#607B96",
-                                padding: "24px 0 0 0",
-                                overflow: "hidden"
-                            }}
-                        >
-                            {text}
-                        </SyntaxHighlighter>
-                    )
-                })}
-
+                {
+                    section === "bio" ?
+                        <BioText />
+                        :
+                        section === "experience" ?
+                            <ExperienceText />
+                            : ""
+                }
             </div>
 
             <div></div>
