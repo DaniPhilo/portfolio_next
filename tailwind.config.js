@@ -32,6 +32,7 @@ module.exports = {
         'about-layout': '300px, repeat(2, 1fr)',
         'text-display-layout': "1fr, 20px"
       },
+      spacing: {},
     },
   },
   plugins: [],

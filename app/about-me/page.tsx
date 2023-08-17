@@ -52,14 +52,10 @@ const AboutPage = () => {
           />
         </ul>
       </div>
-      <div className="grid grid-cols-text-display-layout">
-        <div className="py-4 px-6">
+      <div className="overflow-y-auto py-4 px-6 border-r border-r-line-color">
           <TextDisplay section={section} />
-        </div>
-        <Scrollbar />
       </div>
       <div className="grid grid-cols-text-display-layout">
-        <Scrollbar />
       </div>
     </div>
   )
