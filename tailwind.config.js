@@ -10,14 +10,21 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-fira-code)'],
       },
+      fontSize: {
+        headline: "68px",
+        subheadline: "32px"
+      },
       colors: {
         "background-fill": "#010C15",
         "primary": "#011627",
         "primary-text": "#607B96",
         "highlight-text": "#FFFFFF",
         "line-color": "#1E2D3D",
+        "secondary-gray": "#607B96",
+        "secondary-turquoise": "#3C9D93",
+        "secondary-purple": "#4D5BCE",
         "accent-orange": "#FEA55F",
-        "accent-blue": "#43D9AD",
+        "accent-turquoise": "#43D9AD",
         "accent-red": "#E99287",
         "accent-purple": "#C98BDF"
       }
