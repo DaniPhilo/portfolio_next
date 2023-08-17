@@ -11,14 +11,16 @@ import RedOpenFolder from "../../assets/folder-open-red.svg"
 import PurpleOpenFolder from "../../assets/folder-open-purple.svg"
 import TurquoiseOpenFolder from "../../assets/folder-open-turquoise.svg"
 import { useState } from "react"
+import { Scrollbar } from "@/components/Scrollbar"
+import TextDisplay from "@/components/TextDisplay"
 
 const AboutPage = () => {
 
   const [section, setSection] = useState<string>("bio");
 
   return (
-    <div className="w-full h-full">
-      <div className="max-w-[300px] h-full p-4 border-r border-r-line-color">
+    <div className="w-full h-full grid grid-cols-about-layout">
+      <div className="p-4 border-r border-r-line-color">
         <ul className="flex flex-col justify-start items-start gap-2">
           <AboutLink
             section={section}
@@ -50,8 +52,14 @@ const AboutPage = () => {
           />
         </ul>
       </div>
-      <div>
-
+      <div className="grid grid-cols-text-display-layout">
+        <div className="py-4 px-6">
+          <TextDisplay />
+        </div>
+        <Scrollbar />
+      </div>
+      <div className="grid grid-cols-text-display-layout">
+        <Scrollbar />
       </div>
     </div>
   )

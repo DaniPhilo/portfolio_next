@@ -27,7 +27,11 @@ module.exports = {
         "accent-turquoise": "#43D9AD",
         "accent-red": "#E99287",
         "accent-purple": "#C98BDF"
-      }
+      },
+      gridTemplateColumns: {
+        'about-layout': '300px, repeat(2, 1fr)',
+        'text-display-layout': "1fr, 20px"
+      },
     },
   },
   plugins: [],
