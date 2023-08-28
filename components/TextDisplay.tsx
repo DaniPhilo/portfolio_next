@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import BioText from './BioText';
 import ExperienceText from './ExperienceText';
+import EducationText from './EducationText';
 
 function countLines(ref: React.RefObject<HTMLDivElement>) {
     const div = ref.current;
@@ -69,7 +70,10 @@ const TextDisplay = ({ section }: TextDisplayProps) => {
                         :
                         section === "experience" ?
                             <ExperienceText />
-                            : ""
+                            :
+                            section === "education" ?
+                                <EducationText />
+                                : ""
                 }
             </div>
 
