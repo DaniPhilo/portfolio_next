@@ -19,25 +19,15 @@ const SnippetsSlider = ({ snippets }: { snippets: number[] }) => {
 
         // Update snippets scale and opacity relatively to their ditances from the selected snippet
         children.forEach((el: HTMLDivElement, index) => {
-            if (index === targetIndex - 2) {
+            if (index === targetIndex - 2 || index === targetIndex + 2) {
                 el.style.transform = "scale(0.7)";
                 el.style.zIndex = "2";
                 el.style.opacity = "0.25";
             }
-            else if (index === targetIndex - 1) {
+            else if (index === targetIndex - 1 || index === targetIndex + 1) {
                 el.style.transform = "scale(0.8)";
                 el.style.zIndex = "2";
                 el.style.opacity = "0.5";
-            }
-            else if (index === targetIndex + 1) {
-                el.style.transform = "scale(0.8)";
-                el.style.zIndex = "2";
-                el.style.opacity = "0.5";
-            }
-            else if (index === targetIndex + 2) {
-                el.style.transform = "scale(0.7)";
-                el.style.zIndex = "2";
-                el.style.opacity = "0.25";
             }
             else if (index === targetIndex) {
                 el.style.transform = "scale(1)";
@@ -82,7 +72,7 @@ const SnippetsSlider = ({ snippets }: { snippets: number[] }) => {
                     return (
                         <div
                             key={index}
-                            className={`absolute left-0 w-full p-4 bg-line-color transition-all duration-700 ease-out origin-center rounded-xl`}
+                            className={`absolute left-0 w-full p-4 bg-background-fill transition-all duration-700 ease-out origin-center rounded-xl`}
                             style={{
                                 // width: "500px",
                                 height: ITEM_HEIGHT,

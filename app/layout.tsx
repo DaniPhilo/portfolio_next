@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${font.className} w-screen h-screen bg-background-fill p-4`}>
+      <body className={`${font.className} w-screen h-screen bg-background-fill p-4 overflow-hidden`}>
         <div className='w-full h-full grid grid-rows-[3.5rem_1fr_3.5rem] bg-primary text-primary-text border border-line-color rounded'>
 
           <header className='w-full flex justify-start items-center border-b border-line-color rounded'>
