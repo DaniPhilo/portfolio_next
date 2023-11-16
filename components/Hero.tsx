@@ -3,7 +3,7 @@ import Link from 'next/link';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-const Hero = () => {
+const Hero = () => {    
 
     const customClass = "bg-background-fill"
     return (
@@ -42,7 +42,6 @@ const Hero = () => {
                         </Link>
                         <span className='text-accent-red'>"</span>
                     </div>
-
                 </div>
 
             </div>

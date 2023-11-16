@@ -1,11 +1,18 @@
 "use client"
 import { useEffect, useRef, useState } from "react";
 
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco, vs2015, atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
+
 const ITEM_WIDTH = 600;
-const ITEM_HEIGHT = 150;
+const ITEM_HEIGHT = 200;
 const PADDING_Y = 5;
 
-const SnippetsSlider = ({ snippets }: { snippets: number[] }) => {
+const SnippetsSlider = ({ snippets }: { snippets: any[] }) => {
+
+    console.log(snippets);
+
 
     const [animationOn, setAnimationOn] = useState(true);
 
@@ -56,23 +63,23 @@ const SnippetsSlider = ({ snippets }: { snippets: number[] }) => {
 
     useEffect(() => {
         // If mouse is not hovering, autoscroll
-        const intervalId = animationOn ? setInterval(autoScroll, 5000) : undefined;
+        const intervalId = animationOn ? setInterval(autoScroll, 2000) : undefined;
         return () => clearInterval(intervalId);
     }, [animationOn])
 
     return (
-        <div 
-        ref={el} 
-        className={`relative w-full h-full mx-auto transition-all duration-700 translate-y-[50%]`}
-        onMouseEnter={() => setAnimationOn(false)}
-        onMouseLeave={() => setAnimationOn(true)}
+        <div
+            ref={el}
+            className={`relative w-full h-full mx-auto transition-all duration-700`}
+            onMouseEnter={() => setAnimationOn(false)}
+            onMouseLeave={() => setAnimationOn(true)}
         >
             {
                 snippets.map((snippet, index) => {
                     return (
                         <div
                             key={index}
-                            className={`absolute left-0 w-full p-4 bg-background-fill transition-all duration-700 ease-out origin-center rounded-xl`}
+                            className={`absolute left-0 w-full p-2 bg-background-fill transition-all duration-700 ease-out origin-center rounded-xl overflow-y-auto cursor-pointer`}
                             style={{
                                 // width: "500px",
                                 height: ITEM_HEIGHT,
@@ -86,7 +93,13 @@ const SnippetsSlider = ({ snippets }: { snippets: number[] }) => {
                             }}
                             onClick={(e) => doSelect(index)}
                         >
-                            {"Item " + snippet}
+                            <SyntaxHighlighter 
+                            language="javascript" 
+                            style={atomOneDark}
+                            customStyle={{backgroundColor: "transparent"}}
+                            >
+                                {snippet.data.files[Object.keys(snippet.data.files) as any].content}
+                            </SyntaxHighlighter>
                         </div>
                     )
                 })

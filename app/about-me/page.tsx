@@ -59,7 +59,7 @@ const AboutPage = () => {
         <TextDisplay section={section} />
       </div>
       <div className="grid grid-cols-text-display-layout px-10">
-        <SnippetsSlider snippets={snippets} />
+        {/* <SnippetsSlider snippets={snippets} /> */}
       </div>
     </div>
   )
