@@ -11,9 +11,6 @@ const PADDING_Y = 5;
 
 const SnippetsSlider = ({ snippets }: { snippets: any[] }) => {
 
-    console.log(snippets);
-
-
     const [animationOn, setAnimationOn] = useState(true);
 
     const selectedIndex = useRef(0);
