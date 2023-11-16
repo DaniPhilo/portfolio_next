@@ -19,7 +19,13 @@ const AboutLink = ({ section, setSection, path, text, img }: AboutLinkProps) => 
 
     return (
         <li className={`w-fit flex justify-start items-center gap-2 cursor-pointer ${section === path ? "text-highlight-text" : "text-primary-text"}`} onClick={() => handleClick(path)}>
-            <Image src={section === path ? ChevronSelected : ChevronGray} alt="" width={20} height={20} />
+            <Image
+                src={section === path ? ChevronSelected : ChevronGray}
+                width={20}
+                height={20}
+                className={`${section === path ? "rotate-90" : ""}`}
+                alt=""
+            />
             <Image src={img} alt="" width={20} height={20} />
             <span>{text}</span>
         </li>
