@@ -32,6 +32,7 @@ export default function RootLayout({
                 <NavLink path='/' text='_hello' />
                 <NavLink path='/about-me' text='_about-me' />
                 <NavLink path='/projects' text='_projects' />
+                <NavLink path='/contact-me' text='_contact-me' />
               </ul>
             </nav>
           </header>

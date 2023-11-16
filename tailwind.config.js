@@ -16,6 +16,7 @@ module.exports = {
       },
       colors: {
         "background-fill": "#010C15",
+        "background-darker-fill": "#011221",
         "primary": "#011627",
         "primary-text": "#607B96",
         "highlight-text": "#FFFFFF",
