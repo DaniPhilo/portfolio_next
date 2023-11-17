@@ -9,8 +9,8 @@ import IconAndText from "./IconAndText"
 
 const ContactSideBar = () => {
     return (
-        <div className="border-r border-r-line-color">
-            <div className="w-full flex gap-4 p-2 border-b border-line-color text-highlight-text">
+        <div className="border-r border-r-line-color text-xs 2xl:text-base">
+            <div className="flex gap-4 p-2 border-b border-line-color text-highlight-text">
                 <Image
                     src={ChevronSelected}
                     width={20}
