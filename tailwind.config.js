@@ -33,6 +33,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         'about-layout': '300px, repeat(2, 1fr)',
+        'about-medium-layout': '200px, repeat(2, 1fr)',
         'text-display-layout': "1fr, 20px"
       },
       spacing: {},

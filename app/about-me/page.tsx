@@ -14,15 +14,14 @@ import { useState } from "react"
 import { Scrollbar } from "@/components/Scrollbar"
 import TextDisplay from "@/components/TextDisplay"
 import SnippetsSlider from "@/components/SnippetsSlider"
-
-const snippets = [1, 2, 3, 4, 5, 6, 7];
+import SnippetShowcase from "@/components/SnippetShowcase"
 
 const AboutPage = () => {
 
   const [section, setSection] = useState<string>("bio");
 
   return (
-    <div className="w-full h-full grid grid-cols-about-layout">
+    <div className="w-full h-full grid grid-cols-about-medium-layout 2xl:grid-cols-about-layout">
       <div className="p-4 border-r border-r-line-color">
         <ul className="flex flex-col justify-start items-start gap-2">
           <AboutLink
@@ -58,8 +57,8 @@ const AboutPage = () => {
       <div className="overflow-y-auto py-4 px-6 border-r border-r-line-color">
         <TextDisplay section={section} />
       </div>
-      <div className="grid grid-cols-text-display-layout px-10">
-        {/* <SnippetsSlider snippets={snippets} /> */}
+      <div className="overflow-y-auto py-4 px-6 border-r border-r-line-color">
+        <SnippetShowcase />
       </div>
     </div>
   )
