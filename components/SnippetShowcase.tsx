@@ -22,7 +22,7 @@ const SnippetShowcase = () => {
                     console.log(snippet);
 
                     return (
-                        <div className="w-full space-y-4">
+                        <div key={i} className="w-full space-y-4">
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-4">
                                     <img 
@@ -39,7 +39,7 @@ const SnippetShowcase = () => {
                             <SyntaxHighlighter
                                 language="javascript" 
                                 style={atomOneDark}
-                                customStyle={{backgroundColor: "#011221", fontSize: "0.8em", padding: "1rem", borderRadius: "5px", width: "100%"}}
+                                customStyle={{backgroundColor: "#011221", fontSize: "0.7em", padding: "1rem", borderRadius: "5px", width: "100%"}}
                             >
                                 {snippet.data.files[Object.keys(snippet.data.files) as any].content}
                             </SyntaxHighlighter>

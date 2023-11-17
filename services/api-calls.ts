@@ -1,8 +1,6 @@
 import { Octokit } from "octokit"
 
-export const getGists = async () => {
-    console.log(process.env.NEXT_PUBLIC_GH_TOKEN);
-    
+export const getGists = async () => {    
     const octokit = new Octokit({
         auth: process.env.NEXT_PUBLIC_GH_TOKEN
     });

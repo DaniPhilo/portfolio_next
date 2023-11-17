@@ -1,4 +1,5 @@
 "use client"
+import { getGists } from "@/services/api-calls";
 import { useEffect, useRef, useState } from "react";
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -6,10 +7,17 @@ import { docco, vs2015, atomOneDark } from 'react-syntax-highlighter/dist/esm/st
 
 
 const ITEM_WIDTH = 600;
-const ITEM_HEIGHT = 200;
+const ITEM_HEIGHT = 150;
 const PADDING_Y = 5;
 
-const SnippetsSlider = ({ snippets }: { snippets: any[] }) => {
+const SnippetsSlider = () => {
+
+    const [snippets, setSnippets] = useState<any[]>([]);
+
+    useEffect(() => {
+        getGists()
+        .then(res => setSnippets(res));
+    },[]);
 
     const [animationOn, setAnimationOn] = useState(true);
 
@@ -17,7 +25,7 @@ const SnippetsSlider = ({ snippets }: { snippets: any[] }) => {
 
     const el = useRef<HTMLDivElement>(null);
 
-    const doSelect = (targetIndex: number) => {
+    const doSelect = (targetIndex: number) => {        
         const children = Array.from(el.current!.children) as HTMLDivElement[];
         selectedIndex.current = targetIndex;
 
@@ -50,7 +58,7 @@ const SnippetsSlider = ({ snippets }: { snippets: any[] }) => {
         el.current!.style.transform = `translateY(calc(50% - ${height * targetIndex + height * 0.5}px))`;
     }
 
-    const autoScroll = () => {
+    const autoScroll = () => {        
         if (selectedIndex.current === snippets.length - 1) {
             doSelect(0);
         } else {
@@ -62,7 +70,7 @@ const SnippetsSlider = ({ snippets }: { snippets: any[] }) => {
         // If mouse is not hovering, autoscroll
         const intervalId = animationOn ? setInterval(autoScroll, 2000) : undefined;
         return () => clearInterval(intervalId);
-    }, [animationOn])
+    }, [animationOn, snippets])
 
     return (
         <div
@@ -93,7 +101,7 @@ const SnippetsSlider = ({ snippets }: { snippets: any[] }) => {
                             <SyntaxHighlighter 
                             language="javascript" 
                             style={atomOneDark}
-                            customStyle={{backgroundColor: "transparent", fontSize: "0.8em"}}
+                            customStyle={{backgroundColor: "transparent", fontSize: "0.7em"}}
                             >
                                 {snippet.data.files[Object.keys(snippet.data.files) as any].content}
                             </SyntaxHighlighter>
