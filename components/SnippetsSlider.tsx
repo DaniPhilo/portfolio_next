@@ -84,7 +84,7 @@ const SnippetsSlider = () => {
                     return (
                         <div
                             key={index}
-                            className={`absolute left-0 w-full p-2 bg-background-fill transition-all duration-700 ease-out origin-center rounded-xl overflow-y-auto cursor-pointer`}
+                            className={`absolute left-0 w-full p-2 bg-background-fill transition-all duration-700 ease-out origin-center rounded-xl overflow-y-auto cursor-pointer snippet-scrollbar`}
                             style={{
                                 // width: "500px",
                                 height: ITEM_HEIGHT,

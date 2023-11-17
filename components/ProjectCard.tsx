@@ -14,20 +14,20 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
     const [imgUrl, setImgUrl] = useState<string>("");
 
-    useEffect(() => {
-        setImgUrl("bg-[url('" + project.img + "')]");
-    }, [])
+    // useEffect(() => {
+    //     setImgUrl("bg-[url('" + project.img + "')]");
+    // }, [])
 
 
     return (
-        <div className={`group relative w-[300px] xl:w-[400px] h-[200px] xl:h-[250px] ${imgUrl} bg-cover bg-center bg-no-repeat rounded overflow-hidden duration-500 hover:scale-[1.025] `}>
-            <div className="lg:translate-y-[70%] xl:translate-y-[75%] h-full p-2 duration-500 lg:group-hover:translate-y-[0%] bg-[#01162788] lg:bg-transparent lg:bg-gradient-to-b from-transparent via-[#00000055] via-20% to-[#000000cc]">
-                <h3 className="font-semibold lg:text-xl text-highlight-text">{project.name}</h3>
-                <p className="text-accent-turquoise">{project.technologies.join(" | ")}</p>
-                <p className="text-highlight-text text-xs lg:text-sm xl:text-lg">{project.description}</p>
+        <Link href={project.projectLink} target="_black" style={{backgroundImage: `url('${project.img}')`}} className={`group relative z-0 w-[275px] h-[150px] 2xl:w-[350px] 2xl:h-[200px] bg-cover bg-center bg-no-repeat rounded overflow-hidden duration-500 hover:scale-[1.025]`}>
+            <div className="translate-y-[78%] 2xl:translate-y-[81%] h-full p-2 duration-500 lg:group-hover:translate-y-[0%] lg:bg-gradient-to-b from-transparent via-[#00000099] via-20% to-[#000000cc]">
+                <h3 className="font-semibold text-highlight-text 2xl:text-lg">{project.name}</h3>
+                <p className="text-accent-turquoise text-sm 2xl:text-base">{project.technologies.join(" | ")}</p>
+                <p className="max-h-[145px] 2xl:max-h-[140px] text-highlight-text text-xs 2xl:text-base overflow-y-auto project-scrollbar">{project.description}</p>
             </div>
             <div className="absolute top-0 right-0 z-10 flex gap-2 p-2">
-                <Link href={project.ghLink}>
+                <Link href={project.ghLink} target="_blank">
                     <Image
                         src={GhIcon}
                         alt=""
@@ -35,7 +35,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                         height={20}
                     />
                 </Link>
-                <Link href={project.projectLink}>
+                <Link href={project.projectLink} target="_blank">
                     <Image
                         src={LinkIcon}
                         alt=""
@@ -44,7 +44,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     />
                 </Link>
             </div>
-        </div>
+        </Link>
     )
 }
 

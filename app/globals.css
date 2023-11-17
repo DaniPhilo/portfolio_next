@@ -22,3 +22,19 @@
 ::-webkit-scrollbar-thumb:hover {
     /* background: #555; */
 }
+
+.snippet-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 5px;
+}
+.snippet-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.project-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 5px;
+}
+.project-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
