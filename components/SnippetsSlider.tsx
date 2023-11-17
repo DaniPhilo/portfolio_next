@@ -93,7 +93,7 @@ const SnippetsSlider = ({ snippets }: { snippets: any[] }) => {
                             <SyntaxHighlighter 
                             language="javascript" 
                             style={atomOneDark}
-                            customStyle={{backgroundColor: "transparent"}}
+                            customStyle={{backgroundColor: "transparent", fontSize: "0.8em"}}
                             >
                                 {snippet.data.files[Object.keys(snippet.data.files) as any].content}
                             </SyntaxHighlighter>

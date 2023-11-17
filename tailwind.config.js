@@ -11,8 +11,10 @@ module.exports = {
         sans: ['var(--font-fira-code)'],
       },
       fontSize: {
-        headline: "68px",
-        subheadline: "32px"
+        "headline": "68px",
+        "headline-medium": "48px",
+        "subheadline": "32px",
+        "subheadline-medium": "26px"
       },
       colors: {
         "background-fill": "#010C15",
