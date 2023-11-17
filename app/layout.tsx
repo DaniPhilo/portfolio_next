@@ -2,6 +2,13 @@ import NavLink from '@/components/NavLink';
 import './globals.css'
 import type { Metadata } from 'next'
 import { Fira_Code } from 'next/font/google'
+import Link from 'next/link';
+import Image from 'next/image';
+
+import LinkedinIcon from '@/assets/linkedin-icon.svg'
+import LinkedinIconWhite from '@/assets/linkedin-icon-white.svg'
+import GitHubIcon from '@/assets/github-icon.svg'
+import GitHubIconWhite from '@/assets/github-icon-white.svg'
 
 const font = Fira_Code({
   subsets: ['latin'],
@@ -44,6 +51,22 @@ export default function RootLayout({
           <footer className='w-full flex justify-start items-center border-t border-line-color rounded'>
             <div className='max-w-[300px] p-4 border-r border-r-line-color'>
               <p>find me in:</p>
+            </div>
+            <div className='h-full flex'>
+            <Link href={"https://github.com/DaniPhilo"} target='_blank' className='w-[60px] h-full flex justify-center items-center p-4 border-r border-line-color'>
+                <Image
+                  src={GitHubIcon}
+                  alt=''
+                  className='w-full'
+                />
+              </Link>
+              <Link href={"https://www.linkedin.com/in/daniel-carrasco-casado/"} target='_blank' className='w-[60px] h-full flex justify-center items-center p-4 border-r border-line-color'>
+                <Image
+                  src={LinkedinIcon}
+                  alt=''
+                  className='w-full'
+                />
+              </Link>
             </div>
           </footer>
 
