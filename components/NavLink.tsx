@@ -12,8 +12,8 @@ const NavLink = ({ path, text }: NavLinkProps) => {
     const pathName = usePathname();    
 
     return (
-        <li>
-            <Link href={path} className={`p-4 border-r border-r-line-color hover:text-highlight-text hover:border-b hover:border-b-accent-orange hover:border-b-2 ${pathName === path ? "text-highlight-text border-b border-b-accent-orange border-b-2" : ""}`}>{text}</Link>
+        <li className="p-2 border-b border-line-color lg:border-0">
+            <Link href={path} className={`lg:p-4 lg:border-r border-r-line-color hover:text-highlight-text hover:border-b hover:border-b-accent-orange hover:border-b-2 ${pathName === path ? "text-highlight-text lg:border-b lg:border-b-accent-orange lg:border-b-2" : ""}`}>{text}</Link>
         </li>
     )
 }
