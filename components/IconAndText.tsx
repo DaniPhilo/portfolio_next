@@ -22,7 +22,7 @@ const IconAndText = ({ link, icon, text }: IconAndTextProps) => {
                         <p>{text}</p>
                     </Link>
                     :
-                    <div className="w-full flex items-start gap-4 break-all">
+                    <div className="w-full flex items-start gap-4 break-word">
                         <Image
                             src={icon}
                             width={20}

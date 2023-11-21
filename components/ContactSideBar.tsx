@@ -20,7 +20,7 @@ const ContactSideBar = () => {
                 contacts
             </div>
             <div className="w-full py-4 px-2 space-y-2">
-                <IconAndText icon={EmailSvg} text="daniel.carrasco.dev@gmail.com" />
+                <IconAndText icon={EmailSvg} text="daniel.carrasco.dev @gmail.com" />
                 <IconAndText icon={PhoneSvg} text="+34 680923983" />
             </div>
             <div className="w-full flex gap-4 p-2 border-y border-line-color text-highlight-text">
