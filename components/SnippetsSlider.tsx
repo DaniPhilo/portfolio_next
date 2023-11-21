@@ -12,12 +12,24 @@ const PADDING_Y = 5;
 
 const SnippetsSlider = () => {
 
+    const [windowWidth, setWindowWidth] = useState<number>(0);
     const [snippets, setSnippets] = useState<any[]>([]);
 
+    const getWindowWidth = () => {
+        setWindowWidth(window.innerWidth);
+    }
+
     useEffect(() => {
-        getGists()
-        .then(res => setSnippets(res));
-    },[]);
+        window.addEventListener("resize", getWindowWidth);
+        return () => window.removeEventListener("resize", getWindowWidth);
+    }, [])
+
+    useEffect(() => {
+        if (windowWidth >= 1028) {
+            getGists()
+                .then(res => setSnippets(res));
+        }
+    }, []);
 
     const [animationOn, setAnimationOn] = useState(true);
 
@@ -25,7 +37,7 @@ const SnippetsSlider = () => {
 
     const el = useRef<HTMLDivElement>(null);
 
-    const doSelect = (targetIndex: number) => {        
+    const doSelect = (targetIndex: number) => {
         const children = Array.from(el.current!.children) as HTMLDivElement[];
         selectedIndex.current = targetIndex;
 
@@ -58,7 +70,7 @@ const SnippetsSlider = () => {
         el.current!.style.transform = `translateY(calc(50% - ${height * targetIndex + height * 0.5}px))`;
     }
 
-    const autoScroll = () => {        
+    const autoScroll = () => {
         if (selectedIndex.current === snippets.length - 1) {
             doSelect(0);
         } else {
@@ -98,10 +110,10 @@ const SnippetsSlider = () => {
                             }}
                             onClick={(e) => doSelect(index)}
                         >
-                            <SyntaxHighlighter 
-                            language="javascript" 
-                            style={atomOneDark}
-                            customStyle={{backgroundColor: "transparent", fontSize: "0.7em"}}
+                            <SyntaxHighlighter
+                                language="javascript"
+                                style={atomOneDark}
+                                customStyle={{ backgroundColor: "transparent", fontSize: "0.7em" }}
                             >
                                 {snippet.data.files[Object.keys(snippet.data.files) as any].content}
                             </SyntaxHighlighter>

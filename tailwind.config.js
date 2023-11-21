@@ -13,8 +13,10 @@ module.exports = {
       fontSize: {
         "headline": "68px",
         "headline-medium": "48px",
+        "headline-small": "42px",
         "subheadline": "32px",
-        "subheadline-medium": "26px"
+        "subheadline-medium": "26px",
+        "subheadline-small": "18px",
       },
       colors: {
         "background-fill": "#010C15",
