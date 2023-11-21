@@ -21,12 +21,12 @@ const NavMenu = () => {
                 className="relative z-20 mr-2 cursor-pointer lg:hidden"
                 onClick={() => setOpenMenu(prev => !prev)}
             />
-            <nav className={`absolute lg:static w-[calc(100%-16px)] h-[calc(100%-2.5rem-16px)] lg:h-[3.5rem] top-12 left-0 z-10 ml-2 translate-y-[-100%] duration-200 ${openMenu && "translate-y-0"} flex flex-col justify-between lg:translate-y-0 lg:w-[calc(100%-200px)] lg:m-0`}>
+            <nav className={`absolute lg:static w-[calc(100%-16px)] h-[calc(100%-2.5rem-16px)] lg:h-[3.5rem] top-12 left-0 z-10 ml-2 translate-y-[-120%] duration-200 ${openMenu && "translate-y-[0%]"} flex flex-col justify-between lg:translate-y-0 lg:w-[calc(100%-200px)] lg:m-0 bg-primary lg:bg-transparent border-x border-x-line-color`}>
                 <ul className='flex flex-col lg:flex-row justify-start lg:items-center lg:h-full'>
-                    <NavLink path='/' text='_hello' />
-                    <NavLink path='/about-me' text='_about-me' />
-                    <NavLink path='/projects' text='_projects' />
-                    <NavLink path='/contact-me' text='_contact-me' />
+                    <NavLink path='/' text='_hello' setOpenMenu={setOpenMenu} />
+                    <NavLink path='/about-me' text='_about-me' setOpenMenu={setOpenMenu} />
+                    <NavLink path='/projects' text='_projects' setOpenMenu={setOpenMenu} />
+                    <NavLink path='/contact-me' text='_contact-me' setOpenMenu={setOpenMenu} />
                 </ul>
                 <div className="lg:hidden">
                     <Footer />

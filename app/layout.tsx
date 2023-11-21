@@ -34,9 +34,9 @@ export default function RootLayout({
 
           <NavMenu />
 
-          {/* <main className='min-h-full'>
+          <main className='min-h-full'>
             {children}
-          </main> */}
+          </main>
 
           <div className='hidden lg:block'>
             <Footer />
