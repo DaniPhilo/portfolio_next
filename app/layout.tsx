@@ -37,7 +37,6 @@ export default function RootLayout({
           {/* <main className='min-h-full'>
             {children}
           </main> */}
-          <div></div>
 
           <div className='hidden lg:block'>
             <Footer />
