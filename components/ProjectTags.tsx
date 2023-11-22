@@ -29,7 +29,7 @@ const ProjectTags = ({ projects, selectedTags, setSelectedTags }: ProjectTagsPro
         })
     }
     return (
-        <div className="min-w-[300px] flex flex-col justify-start items-start gap-2 p-6 border-r border-r-line-color">
+        <div className="lg:min-w-[300px] flex flex-col flex-wrap justify-start items-start gap-2 p-4 lg:p-6 border-r border-r-line-color">
             {
                 tags.map((tag, i) => {
                     const isSelected = selectedTags.includes(tag);

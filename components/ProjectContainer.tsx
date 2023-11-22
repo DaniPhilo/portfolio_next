@@ -22,9 +22,9 @@ const ProjectContainer = ({ projects }: ProjectContainerProps) => {
     }, [selectedTags]);
 
     return (
-        <div className="w-full h-full flex">
+        <div className="w-full h-full lg:flex overflow-y-scroll">
             <ProjectTags projects={projects} selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
-            <div className="w-full h-full p-6 flex flex-wrap content-start gap-6 overflow-y-auto">
+            <div className="w-full h-full p-4 lg:p-6 flex flex-wrap justify-center lg:justify-start lg:content-start gap-6 lg:overflow-y-auto">
                 {
                     filteredProjects.map((project, i) => {
                         return (
