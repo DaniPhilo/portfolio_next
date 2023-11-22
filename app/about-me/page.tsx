@@ -54,10 +54,10 @@ const AboutPage = () => {
           />
         </ul>
       </div>
-      <div className="lg:overflow-y-auto py-4 p-4 lg:px-6 border-r border-r-line-color">
+      <div className="lg:overflow-y-auto p-4 lg:px-6 border-r border-r-line-color">
         <TextDisplay section={section} />
       </div>
-      <div className="lg:overflow-y-auto py-4 px-6 border-r border-r-line-color">
+      <div className="lg:overflow-y-auto p-4 lg:px-6 border-r border-r-line-color">
         <SnippetShowcase />
       </div>
     </div>

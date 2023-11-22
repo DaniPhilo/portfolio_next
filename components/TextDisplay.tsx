@@ -64,7 +64,7 @@ const TextDisplay = ({ section }: TextDisplayProps) => {
                 }
             </div>
             <div ref={textRef}>
-                    <p><span className='text-highlight-text'>// personal-info</span> / {section}</p>
+                    <p className='lg:hidden'><span className='text-highlight-text'>// personal-info</span> / {section}</p>
                 {
                     section === "bio" ?
                         <BioText />

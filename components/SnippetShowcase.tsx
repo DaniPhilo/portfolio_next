@@ -17,13 +17,14 @@ const SnippetShowcase = () => {
 
     return (
         <div className="w-full space-y-8">
+            <p className="text-highlight-text lg:text-primary-text">// Code snippet showcase:</p>
             {
                 snippets.map((snippet, i) => {
                     console.log(snippet);
 
                     return (
                         <div key={i} className="w-full space-y-4">
-                            <div className="flex justify-between items-center">
+                            <div className="flex flex-col lg:flex-row lg:justify-between items-start lg:items-center gap-4 lg:gap-0">
                                 <div className="flex items-center gap-4">
                                     <img 
                                     src={snippet.data.owner.avatar_url} 
@@ -31,7 +32,7 @@ const SnippetShowcase = () => {
                                     />
                                     <div className="text-xs">
                                         <p className="text-secondary-purple">@{snippet.data.owner.login}</p>
-                                        <p>Created 5 months ago</p>
+                                        <p><span className="hidden lg:block">Created</span> 5 months ago</p>
                                     </div>
                                 </div>
                                 <p className="font-semibold">{snippet.data.description}</p>
