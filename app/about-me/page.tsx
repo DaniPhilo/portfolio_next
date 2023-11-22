@@ -21,7 +21,7 @@ const AboutPage = () => {
   const [section, setSection] = useState<string>("bio");
 
   return (
-    <div className="w-full h-full grid grid-cols-about-medium-layout 2xl:grid-cols-about-layout">
+    <div className="w-full h-full grid grid-cols-1 lg:grid-cols-about-medium-layout 2xl:grid-cols-about-layout overflow-y-scroll lg:overflow-y-auto">
       <div className="p-4 border-r border-r-line-color">
         <ul className="flex flex-col justify-start items-start gap-2">
           <AboutLink
@@ -54,10 +54,10 @@ const AboutPage = () => {
           />
         </ul>
       </div>
-      <div className="overflow-y-auto py-4 px-6 border-r border-r-line-color">
+      <div className="lg:overflow-y-auto py-4 p-4 lg:px-6 border-r border-r-line-color">
         <TextDisplay section={section} />
       </div>
-      <div className="overflow-y-auto py-4 px-6 border-r border-r-line-color">
+      <div className="lg:overflow-y-auto py-4 px-6 border-r border-r-line-color">
         <SnippetShowcase />
       </div>
     </div>

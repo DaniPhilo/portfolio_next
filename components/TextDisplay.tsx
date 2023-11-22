@@ -42,8 +42,8 @@ const TextDisplay = ({ section }: TextDisplayProps) => {
     }, []);
 
     return (
-        <div className='flex justify-start items-start gap-6'>
-            <div className='min-w-[50px] flex flex-col'>
+        <div className='lg:flex justify-start items-start gap-6'>
+            <div className='hidden lg:block min-w-[50px] flex flex-col'>
                 {
                     numArray.map(num => (
                         <div key={num} className='flex justify-between'>
@@ -64,6 +64,7 @@ const TextDisplay = ({ section }: TextDisplayProps) => {
                 }
             </div>
             <div ref={textRef}>
+                    <p><span className='text-highlight-text'>// personal-info</span> / {section}</p>
                 {
                     section === "bio" ?
                         <BioText />
