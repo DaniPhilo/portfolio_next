@@ -14,7 +14,7 @@ interface AccordionStateInterface {
 
 const ContactSideBar = () => {
 
-    const [accordionOpen, setAccordionOpen] = useState<AccordionStateInterface>({contact: false, find_me: false});
+    const [accordionOpen, setAccordionOpen] = useState<AccordionStateInterface>({contact: true, find_me: true});
 
     return (
         <div className="border-r border-r-line-color text-xs 2xl:text-base">
