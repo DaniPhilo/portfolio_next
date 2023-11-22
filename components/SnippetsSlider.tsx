@@ -12,7 +12,7 @@ const PADDING_Y = 5;
 
 const SnippetsSlider = () => {
 
-    const [windowWidth, setWindowWidth] = useState<number>(0);
+    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
     const [snippets, setSnippets] = useState<any[]>([]);
 
     const getWindowWidth = () => {
@@ -29,7 +29,7 @@ const SnippetsSlider = () => {
             getGists()
                 .then(res => setSnippets(res));
         }
-    }, []);
+    }, [windowWidth]);
 
     const [animationOn, setAnimationOn] = useState(true);
 
