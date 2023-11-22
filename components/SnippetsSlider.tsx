@@ -12,20 +12,23 @@ const PADDING_Y = 5;
 
 const SnippetsSlider = () => {
 
-    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState<number | null>(null);
     const [snippets, setSnippets] = useState<any[]>([]);
 
-    const getWindowWidth = () => {
-        setWindowWidth(window.innerWidth);
-    }
-
     useEffect(() => {
+        if (windowWidth === null) {
+            setWindowWidth(window.innerWidth);
+        }
+        const getWindowWidth = () => {
+            setWindowWidth(window.innerWidth);
+        }
+
         window.addEventListener("resize", getWindowWidth);
         return () => window.removeEventListener("resize", getWindowWidth);
     }, [])
 
     useEffect(() => {
-        if (windowWidth >= 1028) {
+        if (windowWidth && windowWidth >= 1028) {
             getGists()
                 .then(res => setSnippets(res));
         }
