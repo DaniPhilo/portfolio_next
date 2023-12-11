@@ -11,6 +11,15 @@ export const projects: Project[] = [
         projectLink: "https://zelda-inventory-pfw8mfy0e-daniphilo.vercel.app/"
     },
     {
+        name: "Café de Altura WEB",
+        technologies: ["react", "tailwind", "next"],
+        tags: ["react", "tailwind", "next"],
+        description: "An e-commerce site built using Next.js, TypeScript and Tailwind.",
+        img: "https://res.cloudinary.com/dcm9ts1zq/image/upload/v1702317399/project-thumbnails/thumbnail-cafe-de-altura-web_grguhx.png",
+        ghLink: "https://github.com/DaniPhilo/cafe_de_altura_web",
+        projectLink: "https://cafe-de-altura-web.vercel.app/"
+    },
+    {
         name: "Café de Altura API",
         technologies: ["node", "express"],
         tags: ["node", "express"],

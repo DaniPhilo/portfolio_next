@@ -18,7 +18,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     const [linkIconHover, setLinkIconHover] = useState<boolean>(false);
 
     return (
-        <Link href={project.projectLink} target="_black" style={{ backgroundImage: `url('${project.img}')` }} className={`group relative z-0 w-full max-w-[350px] lg:w-[275px] h-[150px] 2xl:w-[350px] 2xl:h-[200px] bg-contain bg-center bg-no-repeat rounded overflow-hidden duration-500 hover:scale-[1.025]`}>
+        <Link href={project.projectLink} target="_black" style={{ backgroundImage: `url('${project.img}')` }} className={`group relative z-0 w-full max-w-[350px] lg:w-[275px] h-[150px] 2xl:w-[350px] 2xl:h-[200px] bg-cover bg-center bg-no-repeat rounded overflow-hidden duration-500 hover:scale-[1.025]`}>
             <div className="translate-y-[65%] 2xl:translate-y-[70%] h-full p-2 duration-500 lg:group-hover:translate-y-[0%] lg:bg-gradient-to-b from-transparent via-[#00000099] via-10% to-[#000000cc] overflow-y-scroll project-scrollbar">
                 <h3 className="font-semibold text-highlight-text 2xl:text-lg">{project.name}</h3>
                 <p className="text-accent-turquoise text-sm 2xl:text-base">{project.technologies.join(" | ")}</p>
